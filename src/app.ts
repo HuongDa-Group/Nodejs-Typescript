@@ -2,6 +2,7 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import cockroachDB from '@config/cockroach';
+import couchbase from '@config/couchbase';
 import {
   Routes
 } from '@interfaces/routes.interface';
@@ -35,10 +36,14 @@ class App {
   }
 
   private static connectToDatabase() {
-    cockroachDB.sequelize.sync({
-      force: false
-    }).then(r => {
-    });
+    cockroachDB
+      .sequelize
+      .sync({
+        force: false
+      })
+      .then();
+    couchbase()
+      .then();
   }
 
   private initializeMiddlewares() {
