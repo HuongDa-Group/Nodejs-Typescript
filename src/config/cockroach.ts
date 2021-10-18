@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import UserModel from '@models/users.model';
+import UserModel from '@models/user.model';
 
 const host: string = process.env.DB_COCKROACH || '';
 
@@ -19,7 +19,7 @@ sequelize
   .then(r => console.log('=-=- Connect DB Success -=-='));
 
 const DB = {
-  Users: UserModel(sequelize),
+  User: UserModel(sequelize),
   sequelize,
   Sequelize,
 };
