@@ -9,7 +9,7 @@ module.exports = {
     ignore_watch: ['node_modules', 'logs'],
     max_memory_restart: '1G',
     env: {
-      PORT: 2238,
+      PORT: 2299,
       NODE_ENV: 'production',
     },
   }]

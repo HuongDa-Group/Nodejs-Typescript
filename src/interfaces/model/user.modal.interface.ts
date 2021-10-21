@@ -3,4 +3,6 @@ export interface UserModalInterface {
   email: string;
   username: string;
   password: string;
+  lock?: string;
+  actived_at?: Date | null;
 }

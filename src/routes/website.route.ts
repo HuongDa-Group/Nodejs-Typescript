@@ -1,6 +1,7 @@
 import {Router} from 'express';
 import {Routes} from '@interfaces/routes.interface';
-import LoginWebsiteController from '@controllers/website/login';
+import LoginAuthWebsiteController from '@controllers/website/auth/login';
+import RegisterAuthWebsiteController from '@controllers/website/auth/register';
 
 class WebsiteRoute implements Routes {
   public path = '/website/';
@@ -11,7 +12,8 @@ class WebsiteRoute implements Routes {
   }
 
   private initializeRoutes() {
-    this.router.post(`/login`, LoginWebsiteController);
+    this.router.post(`/login`, LoginAuthWebsiteController);
+    this.router.post(`/register`, RegisterAuthWebsiteController);
   }
 }
 
