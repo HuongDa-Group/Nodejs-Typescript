@@ -1,9 +1,15 @@
 import { Sequelize, DataTypes, Model, Optional, UUIDV4 } from 'sequelize';
 import { UserModalInterface } from '@interfaces/model/user.modal.interface';
 
-export type UserAttributes = Optional<UserModalInterface, 'id' | 'email' | 'password' | 'username' | 'actived_at'>;
+export type UserAttributes = Optional<
+  UserModalInterface,
+  'id' | 'email' | 'password' | 'username' | 'actived_at'
+>;
 
-export class UserModel extends Model<UserModalInterface, UserAttributes> implements UserModalInterface {
+export class UserModel
+  extends Model<UserModalInterface, UserAttributes>
+  implements UserModalInterface
+{
   public id: string;
   public email: string;
   public username: string;
@@ -56,7 +62,7 @@ export default function (sequelize: Sequelize): typeof UserModel {
           fields: ['username'],
         },
       ],
-    },
+    }
   );
   return UserModel;
 }

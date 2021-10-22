@@ -47,19 +47,19 @@ class App {
       cors({
         origin: this.cors.split('|'),
         optionsSuccessStatus: 200,
-      }),
+      })
     );
     this.app.use(helmet());
     this.app.use(express.json());
     this.app.use(
       express.urlencoded({
         extended: true,
-      }),
+      })
     );
   }
 
   private initializeRoutes(routes: Routes[]) {
-    routes.forEach(route => {
+    routes.forEach((route) => {
       this.app.use(route.path, route.router);
     });
   }

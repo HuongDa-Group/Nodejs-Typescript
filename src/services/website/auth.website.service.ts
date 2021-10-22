@@ -1,7 +1,10 @@
 import { UserModel } from '@models/user.model';
 import { Op, Transaction } from 'sequelize';
 import bcryptjs from 'bcryptjs';
-import { LoginUserRequestInterface, RegisterUserRequestInterface } from '@interfaces/request/user.request.interface';
+import {
+  LoginUserRequestInterface,
+  RegisterUserRequestInterface,
+} from '@interfaces/request/user.request.interface';
 import cockroach from '@config/cockroach';
 import { TokenInterface } from '@interfaces/token.interface';
 import { sign } from 'jsonwebtoken';
@@ -47,7 +50,7 @@ export default class AuthWebsiteService {
           },
           {
             transaction: t,
-          },
+          }
         );
       });
     } catch (e) {

@@ -3,7 +3,11 @@ import { LoginWebsiteApiRequest } from '@request/website/login.website.api.reque
 import { LoginUserRequestInterface } from '@interfaces/request/user.request.interface';
 import AuthWebsiteService from '@services/website/auth.website.service';
 
-export default async function (req: Request, res: Response, next: NextFunction) {
+export default async function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   const request = new LoginWebsiteApiRequest({
     body: req.body,
   });
