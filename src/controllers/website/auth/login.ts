@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { LoginWebsiteApiRequest } from '@request/website/login.website.api.request';
+import { LoginWebsiteRequest } from '@request/website/login.website.request';
 import { LoginUserRequestInterface } from '@interfaces/request/user.request.interface';
 import AuthWebsiteService from '@services/website/auth.website.service';
 
@@ -8,10 +8,10 @@ export default async function (
   res: Response,
   next: NextFunction
 ) {
-  const request = new LoginWebsiteApiRequest({
-    body: req.body,
-  });
   try {
+    const request = new LoginWebsiteRequest({
+      body: req.body,
+    });
     const body: LoginUserRequestInterface = request.body();
     const authService = new AuthWebsiteService();
     await authService.login(body);

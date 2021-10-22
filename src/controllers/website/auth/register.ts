@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { RegisterWebsiteApiRequest } from '@request/website/register.website.api.request';
+import { RegisterWebsiteRequest } from '@request/website/register.website.request';
 import { RegisterUserRequestInterface } from '@interfaces/request/user.request.interface';
 import AuthWebsiteService from '@services/website/auth.website.service';
 
@@ -8,7 +8,7 @@ export default async function (
   res: Response,
   next: NextFunction
 ) {
-  const request = new RegisterWebsiteApiRequest({
+  const request = new RegisterWebsiteRequest({
     body: req.body,
   });
   try {

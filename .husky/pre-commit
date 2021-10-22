@@ -1,6 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-mpm run lint:fix
-mpm run lint
-npm run build
+npm run lint:fix
+npm run lint

@@ -11,8 +11,9 @@ export const isEmpty = (value: string | number | object): boolean => {
     return true;
   } else if (typeof value === 'undefined' || value === undefined) {
     return true;
-  } else
+  } else {
     return (
       value !== null && typeof value === 'object' && !Object.keys(value).length
     );
+  }
 };

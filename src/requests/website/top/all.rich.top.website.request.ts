@@ -1,9 +1,8 @@
 import { requestInterface } from '@interfaces/request.interface';
 import { Request } from '@request/request';
 import Joi, { ValidationResult } from 'joi';
-import { ReturnInterface } from '@interfaces/return.interface';
 
-export class RegisterWebsiteApiRequest extends Request {
+export class AllRichTopWebsiteRequest extends Request {
   protected request: requestInterface;
 
   constructor(request: requestInterface) {
@@ -16,23 +15,20 @@ export class RegisterWebsiteApiRequest extends Request {
   }
 
   public body(): any {
-    const schema: Joi.ObjectSchema = Joi.object({
-      username: Joi.string().alphanum().min(6).max(191).required(),
-      password: Joi.string().required(),
-      email: Joi.string().max(191).email().required(),
-    });
-    const body: ValidationResult = schema.validate(this.request.body);
-    if (body.error) {
-      const _return: ReturnInterface = {
-        code: -1,
-        mess: body.error.message,
-      };
-      throw _return;
-    }
-    return body.value;
+    return null;
   }
 
   public query(): any {
-    return null;
+    const schema: Joi.ObjectSchema = Joi.object({
+      limit: Joi.number().min(1).max(50).default(10),
+    });
+    const body: ValidationResult = schema.validate(this.request.query);
+    if (body.error) {
+      throw {
+        code: -1,
+        mess: body.error.message,
+      };
+    }
+    return body.value;
   }
 }

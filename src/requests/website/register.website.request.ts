@@ -3,7 +3,7 @@ import { Request } from '@request/request';
 import Joi, { ValidationResult } from 'joi';
 import { ReturnInterface } from '@interfaces/return.interface';
 
-export class LoginWebsiteApiRequest extends Request {
+export class RegisterWebsiteRequest extends Request {
   protected request: requestInterface;
 
   constructor(request: requestInterface) {
@@ -17,8 +17,9 @@ export class LoginWebsiteApiRequest extends Request {
 
   public body(): any {
     const schema: Joi.ObjectSchema = Joi.object({
-      username: Joi.string().min(6).max(191).required(),
+      username: Joi.string().alphanum().min(6).max(191).required(),
       password: Joi.string().required(),
+      email: Joi.string().max(191).email().required(),
     });
     const body: ValidationResult = schema.validate(this.request.body);
     if (body.error) {
