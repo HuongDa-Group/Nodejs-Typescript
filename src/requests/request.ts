@@ -1,5 +1,5 @@
-import {requestInterface} from "@interfaces/request.interface";
-import {ValidationResult} from "joi";
+import { requestInterface } from '@interfaces/request.interface';
+// import { ValidationResult } from 'joi';
 
 export abstract class Request {
   protected abstract request: requestInterface;

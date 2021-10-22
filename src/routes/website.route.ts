@@ -1,5 +1,5 @@
-import {Router} from 'express';
-import {Routes} from '@interfaces/routes.interface';
+import { Router } from 'express';
+import { Routes } from '@interfaces/routes.interface';
 import LoginAuthWebsiteController from '@controllers/website/auth/login';
 import RegisterAuthWebsiteController from '@controllers/website/auth/register';
 

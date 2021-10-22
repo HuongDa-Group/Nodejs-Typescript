@@ -11,12 +11,12 @@ const sequelize = new Sequelize.Sequelize(host, {
     collate: 'utf8mb4_general_ci',
     underscored: true,
     freezeTableName: true,
-  }
+  },
 });
 
-sequelize
-  .authenticate()
-  .then(r => console.log('=-=- Connect DB Success -=-='));
+sequelize.authenticate().then(() => {
+  console.log('=-=- Connect DB Success -=-=');
+});
 
 const DB = {
   User: UserModel(sequelize),

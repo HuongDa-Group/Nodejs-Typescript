@@ -1,15 +1,11 @@
-import {
-  NextFunction,
-  Request,
-  Response
-} from "express";
-import {LoginWebsiteApiRequest} from '@request/website/login.website.api.request';
-import {LoginUserRequestInterface} from "@interfaces/request/user.request.interface";
-import AuthWebsiteService from "@services/website/auth.website.service";
+import { NextFunction, Request, Response } from 'express';
+import { LoginWebsiteApiRequest } from '@request/website/login.website.api.request';
+import { LoginUserRequestInterface } from '@interfaces/request/user.request.interface';
+import AuthWebsiteService from '@services/website/auth.website.service';
 
 export default async function (req: Request, res: Response, next: NextFunction) {
   const request = new LoginWebsiteApiRequest({
-    body: req.body
+    body: req.body,
   });
   try {
     const body: LoginUserRequestInterface = request.body();
@@ -19,9 +15,9 @@ export default async function (req: Request, res: Response, next: NextFunction) 
     next({
       code: 0,
       data: {
-        token
+        token,
       },
-      mess: "Login success"
+      mess: 'Login success',
     });
   } catch (e) {
     next(e);

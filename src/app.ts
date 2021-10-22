@@ -3,9 +3,7 @@ import express from 'express';
 import helmet from 'helmet';
 import cockroachDB from '@config/cockroach';
 import couchbase from '@config/couchbase';
-import {
-  Routes
-} from '@interfaces/routes.interface';
+import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 
 class App {
@@ -36,26 +34,28 @@ class App {
   }
 
   private static connectToDatabase() {
-    cockroachDB
-      .sequelize
+    cockroachDB.sequelize
       .sync({
-        force: false
+        force: false,
       })
       .then();
-    couchbase()
-      .then();
+    couchbase().then();
   }
 
   private initializeMiddlewares() {
-    this.app.use(cors({
-      origin: this.cors.split('|'),
-      optionsSuccessStatus: 200,
-    }));
+    this.app.use(
+      cors({
+        origin: this.cors.split('|'),
+        optionsSuccessStatus: 200,
+      }),
+    );
     this.app.use(helmet());
     this.app.use(express.json());
-    this.app.use(express.urlencoded({
-      extended: true
-    }));
+    this.app.use(
+      express.urlencoded({
+        extended: true,
+      }),
+    );
   }
 
   private initializeRoutes(routes: Routes[]) {

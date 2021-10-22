@@ -5,8 +5,8 @@ export interface requestInterface {
 }
 
 export interface validateRequestInterface {
-  request: requestInterface,
-  header: any,
-  body: any,
-  quey: any
+  request: requestInterface;
+  header: any;
+  body: any;
+  quey: any;
 }
