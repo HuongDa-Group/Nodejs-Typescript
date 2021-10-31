@@ -2,7 +2,7 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import cockroachDB from '@config/cockroach';
-import couchbase from '@config/couchbase';
+// import couchbase from '@config/couchbase';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 
@@ -39,7 +39,7 @@ class App {
         force: false,
       })
       .then();
-    couchbase().then();
+    // couchbase().then();
   }
 
   private initializeMiddlewares() {
