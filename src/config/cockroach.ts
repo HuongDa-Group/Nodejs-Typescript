@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import UserModel from '@models/user.model';
+import StaffModel from '@models/staff.model';
 
 const host: string = process.env.DB_COCKROACH || '';
 
@@ -20,6 +21,7 @@ sequelize.authenticate().then(() => {
 
 const DB = {
   User: UserModel(sequelize),
+  Staff: StaffModel(sequelize),
   sequelize,
   Sequelize,
 };
