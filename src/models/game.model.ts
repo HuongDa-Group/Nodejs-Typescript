@@ -1,7 +1,10 @@
 import { Sequelize, DataTypes, Model, UUIDV4 } from 'sequelize';
 import { GameModalInterface } from '@interfaces/model/game.modal.interface';
 
-export class GameModel extends Model<GameModalInterface> implements GameModalInterface {
+export class GameModel
+  extends Model<GameModalInterface>
+  implements GameModalInterface
+{
   public id?: string;
   public name: string;
   public img: string;
@@ -29,7 +32,7 @@ export default function (sequelize: Sequelize): typeof GameModel {
       tableName: 'games',
       sequelize,
       timestamps: false,
-    },
+    }
   );
   return GameModel;
 }
