@@ -17,4 +17,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: docker exec -i pm2-dev bash -c "cd /Project/5Me-API/ && git pull ${{ secrets.GIT }} && npm update && npn run build && pm2 restart 5Me Dev"
+        script: docker exec -i pm2-dev bash -c "cd /Project/5Me-API/ && git pull ${{ secrets.GIT }} && npm update && npm run build && pm2 restart 5Me Dev"
