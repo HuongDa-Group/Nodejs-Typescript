@@ -1,7 +1,7 @@
 import { Sequelize, DataTypes, Model, UUIDV4 } from 'sequelize';
 import { StaffModalInterface } from '@interfaces/model/staff.modal.interface';
 
-export class UserModel
+export class StaffModel
   extends Model<StaffModalInterface>
   implements StaffModalInterface
 {
@@ -15,8 +15,8 @@ export class UserModel
   public readonly updatedAt!: Date;
 }
 
-export default function (sequelize: Sequelize): typeof UserModel {
-  UserModel.init(
+export default function (sequelize: Sequelize): typeof StaffModel {
+  StaffModel.init(
     {
       id: {
         primaryKey: true,
@@ -55,5 +55,5 @@ export default function (sequelize: Sequelize): typeof UserModel {
       ],
     }
   );
-  return UserModel;
+  return StaffModel;
 }
